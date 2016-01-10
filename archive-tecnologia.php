@@ -1,10 +1,10 @@
 <?php get_header() ?>
 
-	<div class="container">
+	<div class="container-fluid">
 
-    	<div class="row">
+    	<div class="container">
 
-            <div class="span12">
+            <div class="archive">
 
                 <h1><?php post_type_archive_title()?></h1>
                 <?php
@@ -13,9 +13,9 @@
                 ?>
 				<?php  while( $loop->have_posts() ) : $loop->the_post(); ?>
 
-              	<h2><a href="<?php the_permalink()?>"><?php the_title()?></a></h2>
-
-              	<?php the_excerpt() ?>
+              	<h2><a class="archive-link" href="<?php the_permalink()?>"><?php the_title()?></a></h2>
+              
+              <p><?php the_excerpt() ?></p>
 
               	<?php endwhile; ?>
 
