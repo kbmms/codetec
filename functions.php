@@ -3,6 +3,9 @@ add_theme_support('post-thumbnails');
 
 
 add_action( 'init', 'codex_tecnologia_init' );
+
+register_nav_menu("menu-principa", "menu do topo");
+
 /**
  * Register a book post type.
  *
@@ -39,7 +42,7 @@ function codex_tecnologia_init() {
 		'has_archive'        => true,
 		'hierarchical'       => false,
 		'menu_position'      => null,
-		'supports'           => array( 'title', 'editor',  'thumbnail' )
+		'supports'           => array( 'title', 'editor',  'thumbnail', 'comments' )
 	);
 
 	register_post_type( 'tecnologia', $args );
@@ -57,30 +60,51 @@ function codex_tecnologia_init() {
     );
 }
 
-//add_action( 'wp_print_styles', 'ewp_film_styles' );
-// 
-//function ewp_film_styles() {
-//  wp_enqueue_style( 'bootstrap', get_stylesheet_directory_uri() . '/css/bootstrap.min.css');
-//  wp_enqueue_style( 'owl-carousel', get_stylesheet_directory_uri() . '/css/owl.carousel.css' );
-//  wp_enqueue_style( 'owl', get_stylesheet_directory_uri() . '/css/owl.theme.css' );
-//  wp_enqueue_style( 'fontawesome', get_stylesheet_directory_uri() . '/font-awesome/css/font-awesome.min.css');
-//  wp_enqueue_style( 'principal', get_stylesheet_uri() );
-// 
-//}
-//
-//
-//
-//add_action( 'wp_enqueue_scripts', 'ewp_film_scripts' );
-// 
-//function ewp_film_scripts() {
-//   if ( is_admin() ) return;  
-//  wp_enqueue_script( 'jquery' );
-//  wp_enqueue_script( 'bootstrap', get_stylesheet_directory_uri() . '/js/bootstrap.min.js', array( 'jquery' ), 1.0, true );
-//  wp_enqueue_script( 'owl', get_stylesheet_directory_uri() . '/js/owl.carousel.js', array( 'jquery' ), 1.0, true );
-//  wp_enqueue_script( 'principal', get_stylesheet_directory_uri() . '/js/script.js', array( 'jquery' ), 1.0, true );
-// 
-//}
+add_action( 'wp_print_styles', 'ewp_film_styles' );
+ 
+function ewp_film_styles() {
+  wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css');
+  wp_enqueue_style( 'owl-carousel', get_template_directory_uri() . '/css/owl.carousel.css' );
+  wp_enqueue_style( 'owl', get_template_directory_uri() . '/css/owl.theme.css' );
+  wp_enqueue_style( 'principal', get_stylesheet_uri() );
+ 
+}
 
 
 
+add_action( 'wp_enqueue_scripts', 'ewp_film_scripts' );
+ 
+function ewp_film_scripts() {
+   if ( is_admin() ) return;  
+  wp_enqueue_script( 'jquery' );
+  wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array( 'jquery' ), 1.0, true );
+  wp_enqueue_script( 'owl', get_template_directory_uri() . '/js/owl.carousel.js', array( 'jquery' ), 1.0, true );
+  wp_enqueue_script( 'principal', get_template_directory_uri() . '/js/script.js', array( 'jquery' ), 1.0, true );
+ 
+}
+
+
+//Código para exibir o disqus em custom post types
+function switch_on_comments_automatically(){
+    global $wpdb;
+    $wpdb->query( $wpdb->prepare("UPDATE $wpdb->posts SET comment_status = 'open'")); // Switch comments on automatically
+}
+
+
+function custom_excerpt_length( $length ) {
+	return 33;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 33 );
+
+
+
+function title_limite($maximo) {
+$title = get_the_title();
+if ( strlen($title) > $maximo ) {
+$continua = '...';
+}
+$title = mb_substr( $title, 0, $maximo, 'UTF-8' );
+echo $title.$continua;
+}
+// para chamar a função use title_limite(20);
 ?>

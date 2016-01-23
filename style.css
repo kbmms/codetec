@@ -69,7 +69,9 @@ font-size: 51px;
     border-top: 1px solid #312B2B;
     border-bottom: 1px solid #000;
     box-shadow: 1px 13px 41px #000;
-  background-image: url(images/dark_brick_wall.png);
+  background-image: url(images/apple-iphone-6-plus-on-a-white-desk.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
   
 }
 .owl-pagination{
@@ -113,9 +115,9 @@ top: 265px;
   text-shadow: 1px 1px 1px #000;
 }
 .item p {
-text-shadow: 1px 1px 1px #000;
 font-weight: bolder;
-color: #F0D92C;
+color: #000;
+  font-size: 25px;
 }
 #owl-demo .item img{
     display: block;
@@ -138,7 +140,7 @@ color: #F0D92C;
   
 /*========  MENU TOPO NAV ==========*/
 .navbar-default {
-    background-color:#DB3131;
+    background-color:#2CC36B;
 }
 .navbar-default .navbar-brand {
 color: #F4EA11;
@@ -177,14 +179,16 @@ color: #F4EA11;
 
 /*welcome text*/
 .txt-welcome h1{
-color: #DDA521;
+color: #3B5652;
+  text-shadow: 1px 1px 1px #000;
 font-size: 29px;
 font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 font-weight: bolder;
 text-transform: uppercase;
 }
 .txt-welcome p {
-  color: #ccc;
+  color: #000;
+font-weight: bold;
 }
 /*========= CARDS ========*/
   .card {
@@ -194,11 +198,13 @@ box-shadow: -43px 12px 38px #000;
     
   }
 .card.card-1{
-  background-color: #fff;
+  background-color: #181817;
   z-index: 1;
+  border: 1px solid #080505;
 }
-.card.card-1 button {
-    border: 3px solid #fff;
+.card.card-1 p a button {
+    border: 3px solid rgb(41, 40, 40);
+  margin-top: 6px;
 }
 .card.card-2{
 background-color: #C64E4E;
@@ -236,13 +242,18 @@ z-index: 4;
   /*======== INTERNA =======*/
   
   .card-dark .card-interna {
-    background-color: #EDE3BF;
-    border: 1px solid #272727;
+    background-color: #292721;
+    padding: 10px 0;
+    height: 159px;
+/*
+    border: 1px solid #110D0D;
     margin: 2px;
+*/
   }
   
   .card-dark .card-interna p {
-    color: #858774;
+color: #858774;
+text-shadow: 1px 1px 1px #000;
   }
   
   .card-interna p,
@@ -250,28 +261,30 @@ z-index: 4;
     font-weight: bolder;
     text-align: center;
     font-family: sans-serif, verdana;
-    font-size: 12px;
+    font-size: 10px;
   }
   .card-interna h3 {
 /*    color: #FBCA61;*/
-        color: #802A2A;
+     color: #fff;
     font-family: 'Lobster', arial;
-    font-size: 15px;
+    font-size: 12px;
+    text-shadow: 1px 1px 1px #2F3231;
   }
   /*====== BOTÂO + PLUS ======*/
   
-  .card-interna button {
-  color: #453838;
-  cursor: pointer;
-  width: 30px;
-  border-radius: 50%;
-  height: 30px;
-  background-color: #F2D797;
-  position: relative;
-  top: 29px;
-
-  animation: 0.3s linear 0s normal none 1 running rodar-back;
-  }
+.card-dark p a button {
+    color: rgb(120, 29, 29);
+    cursor: pointer;
+    width: 30px;
+    border-radius: 50%;
+    height: 30px;
+    background-color: rgb(21, 21, 20);
+/*
+    position: relative;
+    top: 29px;
+*/
+    animation: 0.3s linear 0s normal none 1 running rodar-back;
+}
   
   @keyframes rodar-back {
     0% {
@@ -282,7 +295,7 @@ z-index: 4;
     }
   }
   
-  .card-dark .card-interna button:hover {
+  .card-dark p a button:hover {
     border: 3px solid #292A2B;
     background-color: #767B84;
     animation: rodar 0.3s linear;
@@ -441,7 +454,7 @@ padding: 10px 0;
     margin-top: 24px;
 }
 a.list-group-item .list-group-item-heading, button.list-group-item .list-group-item-heading {
-    color:#fff;
+    color: #020101;
 /*
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 20px;
@@ -449,13 +462,17 @@ a.list-group-item .list-group-item-heading, button.list-group-item .list-group-i
 }
 a.list-group-item:focus, a.list-group-item:hover, button.list-group-item:focus, button.list-group-item:hover {
     color: #555;
+  
     text-decoration: none;
     background-color: #261F1F;
 }
 .list-group-item p {
   color: #858774;
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-size: 18px;
+font-family: "Open Sans Condensed",sans-serif;
+font-size: 18px;
+color: #858774;
+text-shadow: 1px 1px 1px #000;
+font-weight: bolder;
 }
 .list-group-item:last-child {
   border-bottom: none;
@@ -490,7 +507,7 @@ text-transform: uppercase;
 }
 .btn-primary {
 color: #efefee;
-background-color: #DB3131;
+background-color: #2CC36B;
 padding: 15px 91px;
 border-color: transparent;
 }
@@ -501,4 +518,42 @@ border-color: transparent;
 }
 .cine-img img {
   width: 100%;
+}
+.col-md-3.col-sm-6.card.card-1.card-dark .frontend{
+  background: #2cc36b;
+}
+.col-md-3.col-sm-6.card.card-1.card-dark .games{
+  background: #ed5353;#f1c40f
+}
+.col-md-3.col-sm-6.card.card-1.card-dark .smartphones{
+  background: #f1c40f;
+}
+.col-md-3.col-sm-6.card.card-1.card-dark .programas{
+  background: #8e44ad;
+}
+.col-md-3.col-sm-6.card.card-1.card-dark .tecnologias{
+  background: #3498db;
+}
+.frontend p,
+.games p,
+.smartphones p,
+.programas p,
+.tecnologias p{
+color: #FFF;
+font-size: 11px;
+padding: 12px;
+text-transform: uppercase;
+  text-shadow: 1px 1px 1px #000;
+}
+.single p {
+  font-size: 15px;
+  color: #ccc;
+}
+.single h2 {
+  color: #B99F2F;
+  font-size: 40px;
+}
+
+.item span a {
+  text-transform: uppercase;
 }

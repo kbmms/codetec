@@ -19,26 +19,19 @@
       <h3>ALGUNS DESTAQUES</h3>
 -->
       <div id="owl-demo" class="owl-carousel owl-theme">
+       <?php  while ( have_posts() ) : the_post(); ?>    
         <div class="item">
-          <span class="categoria"><a href="#">GAMES</a></span>
-          <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, voluptatibus?</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque velit, cupiditate ab quisquam omnis asperiores ad officiis, at enim sequi perspiciatis ut officia. Illo quam commodi vitae quasi quos quaerat?</p>
+          <span class="categoria"><a href="<?php the_permalink() ?>">
+                          <?php
+              $categoria = get_the_category();
+              $nomeCategoria = $categoria[0]->cat_name;
+              echo $nomeCategoria;
+              ?>
+          </a></span>
+          <h1><?php the_field( "subtitulo" ); ?></h1>
+          <p><?php the_excerpt(); ?></p>
         </div>
-        <div class="item">
-          <span class="categoria"><a href="#">GAMES</a></span>
-          <h1>Lorem consectetur adipisicing elit. Aliquid expedita, aliquam commodi, perspiciatis iste mollitia? Doloremque similique nam facilis iure!</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem magni incidunt alias dolorem temporibus. Delectus, animi debitis harum aliquid dolore?</p>
-        </div>
-        <div class="item">
-          <span class="categoria"><a href="#">GAMES</a></span>
-          <h1>Lorem consectetur adipisicing elit. Aliquid expedita, aliquam commodi, perspiciatis iste mollitia? Doloremque similique nam facilis iure!</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem magni incidunt alias dolorem temporibus. Delectus, animi debitis harum aliquid dolore?</p>
-        </div>
-        <div class="item">
-          <span class="categoria"><a href="#">GAMES</a></span>
-          <h1>Lorem consectetur adipisicing elit. Aliquid expedita, aliquam commodi, perspiciatis iste mollitia? Doloremque similique nam facilis iure!</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem magni incidunt alias dolorem temporibus. Delectus, animi debitis harum aliquid dolore?</p>
-        </div>
+        <?php endwhile; ?>
 
       </div>
     </div>
@@ -49,20 +42,36 @@
       <h1>Mais um blog sobre tecnologias!</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt blanditiis aspernatur neque iusto doloribus ipsa labore, totam cumque, reiciendis facilis.</p>
 
-      <div class="col-md-3 col-sm-3 card  card-1 card-dark">
+      <?php  while ( have_posts() ) : the_post(); ?>    
+
+      <div class="col-md-3 col-sm-6 card  card-1 card-dark">
         <div class="card-interna">
-          <h3>Lorem ipsum dolor sit.</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, dolor.</p>
-          <p>
-            <button>+</button>
+<!--          <h3><?php the_title(); ?></h3>-->
+          <h3><?php the_field( "subtitulo" ); ?></h3>
+          <p><?php the_excerpt(); ?></p>
+
+        </div>
+                  <p>
+            <a href="<?php the_permalink();  ?>"><button>+</button></a>
 
           </p>
-        </div>
-        <div class="card-interna imagem">
-          <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tempphoto-2.jpg" alt="">
+        <div class="<?php
+$categoria = get_the_category();
+$nomeCategoria = $categoria[0]->cat_name;
+echo $nomeCategoria;
+?>">
+        
+         <p><span>      <?php
+$categoria = get_the_category();
+$nomeCategoria = $categoria[0]->cat_name;
+echo $nomeCategoria;
+?> </span></p>
         </div>
       </div>
-
+      
+      <?php endwhile; ?>
+    
+<!--
       <div class="col-md-3 col-sm-3 card card-2 card-dark">
         <div class="card-interna">
           <h3>Lorem ipsum dolor sit.</h3>
@@ -76,35 +85,8 @@
           <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tempphoto-2.jpg" alt="">
         </div>
       </div>
+-->
 
-
-      <div class="col-md-3 col-sm-3 card  card-3 card-dark">
-        <div class="card-interna">
-          <h3>Lorem ipsum dolor sit.</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, dolor.</p>
-          <p>
-            <button>+</button>
-
-          </p>
-        </div>
-        <div class="card-interna imagem">
-          <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tempphoto-2.jpg" alt="">
-        </div>
-      </div>
-      <div class="col-md-3 col-sm-3 card card-4 card-dark">
-        <div class="card-interna">
-          <h3>Lorem ipsum dolor sit.</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, dolor.</p>
-
-          <p>
-            <button>+</button>
-          </p>
-        </div>
-        <div class="card-interna imagem">
-          <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tempphoto-2.jpg" alt="">
-        </div>
-      </div>
-      
       
     
     </div>
@@ -141,22 +123,14 @@
 
         <div class="col-md-8 col-md-offset-2 item-videos">
           <div id="owl-demo-video" class="owl-carousel owl-theme">
-            <div class="item">
-              <div class="divider"></div>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-              <video id="video" controls poster="tempphoto-3.jpg">
-                <source src="curso-wp-developer-essencial-aula-5-video-3.mp4" type="video/mp4">
-                <source src="<?php bloginfo('template_url'); ?>/a7x-sofaraway.webm" type="video/webm">
-              </video>
-            </div>
 
             <div class="item">
               <div class="divider"></div>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-              <video id="video" controls poster="tempphoto-3.jpg">
-                <source src="<?php bloginfo('template_url'); ?>/curso-wp-developer-essencial-aula-5-video-3.mp4" type="video/mp4">
-                <source src="<?php bloginfo('template_url'); ?>/a7x-sofaraway.webm" type="video/webm">
-              </video>
+              <p>
+6 gênios da tecnologia que você não conhece - TecMundo
+TecMundo
+</p>
+        <iframe width="560" height="305" src="https://www.youtube.com/embed/NOzfDsmb54M" frameborder="0" allowfullscreen></iframe>
             </div>
           </div>
         </div>

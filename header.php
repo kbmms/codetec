@@ -2,10 +2,13 @@
 <html <?php language_attributes() ?> >
 
 <head>
+<!--
   <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/bootstrap.min.css">
   <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/owl.carousel.css">
   <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/owl.theme.css">
-  <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/font-awesome/css/font-awesome.min.css">
+  
+-->
+ <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_uri(); ?>">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,20 +39,17 @@
           <a class="navbar-brand" href="http://www.marcelsantos.com.br/blog">Blog Tecnologias</a>
         </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <nav class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li class=""><a href="tecnologias" class="ir-contato-scroll">Desenvolvimento frontend</a></li>
             <li><a href="#portfolio" class="ir-portfolio-scroll">Games</a></li>
             <li><a href="#portfolio" class="ir-portfolio-scroll">Vídeos</a></li>
             <li><a href="#contato" class="ir-contato-scroll">Aplicativos</a></li>
-         
-            <!-- <li><a href="#">Blog</a></li> -->
-
           </ul>
+        </nav>
 
-
-        </div>
+        
+        
         <!-- /.navbar-collapse -->
       </div>
       <!-- /.container-fluid -->
@@ -71,8 +71,7 @@
            </form>
 
           </div>
-        </div>
-        
+        </div  
 
       </div>
     </div>

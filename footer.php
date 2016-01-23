@@ -7,9 +7,11 @@
   </footer>
 
   <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.min.js"></script>
+<!--
   <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/bootstrap.min.js"></script>
   <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/owl.carousel.js"></script>
   <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/script.js"></script>
+-->
   <?php wp_footer(); ?>
 </body>
 
