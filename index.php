@@ -123,15 +123,27 @@ echo $nomeCategoria;
 
         <div class="col-md-8 col-md-offset-2 item-videos">
           <div id="owl-demo-video" class="owl-carousel owl-theme">
-
+            <?php
+              $args = array(
+                'post_type' => 'video',
+                'numberposts' => -1
+              );
+              $my_videos = get_posts( $args );
+              if($my_videos) :
+            ?>
+            
+            <?php foreach( $my_videos as $post ) : setup_postdata( $post ); ?>
             <div class="item">
               <div class="divider"></div>
               <p>
-6 gênios da tecnologia que você não conhece - TecMundo
-TecMundo
+              <?php the_title() ?>
 </p>
-        <iframe width="560" height="305" src="https://www.youtube.com/embed/NOzfDsmb54M" frameborder="0" allowfullscreen></iframe>
+        <iframe width="560" height="305" src="<?php the_field('meuvideo') ?>" frameborder="0" allowfullscreen></iframe>
             </div>
+            <?php endforeach; ?>
+            <?php else: ?>
+            <p>Nenhum vídeo inserido.</p>
+            <?php endif; ?>
           </div>
         </div>
 

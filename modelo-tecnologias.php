@@ -19,5 +19,6 @@
     <?php the_content(); ?>
      <?php comments_template(); ?>
   </div>
+  
 </div>
-<?php get_footer(); ?> 
+<?php get_footer(); ?>

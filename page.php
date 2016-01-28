@@ -21,9 +21,6 @@
     <img class="img-responsive" src="<?php the_field( "imagem-subpage" ); ?>" alt="">
     </div>
     </a>
-    
-    
-    
 
   <?php
     endwhile;

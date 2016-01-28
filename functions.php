@@ -3,7 +3,7 @@ add_theme_support('post-thumbnails');
 
 
 add_action( 'init', 'codex_tecnologia_init' );
-
+add_action('init', 'videos_tec');
 register_nav_menu("menu-principa", "menu do topo");
 
 /**
@@ -11,6 +11,58 @@ register_nav_menu("menu-principa", "menu do topo");
  *
  * @link http://codex.wordpress.org/Function_Reference/register_post_type
  */
+function videos_tec(){
+    	$labels = array(
+		'name'               => _x( 'Videos', 'post type general name', 'your-plugin-textdomain' ),
+		'singular_name'      => _x( 'Video', 'post type singular name', 'your-plugin-textdomain' ),
+		'menu_name'          => _x( 'Vídeos', 'admin menu', 'your-plugin-textdomain' ),
+		'name_admin_bar'     => _x( 'Vídeo', 'add new on admin bar', 'your-plugin-textdomain' ),
+		'add_new'            => _x( 'Adicionar novo', 'book', 'your-plugin-textdomain' ),
+		'add_new_item'       => __( 'Adicionar novo vídeo', 'your-plugin-textdomain' ),
+		'new_item'           => __( 'Novo vídeo', 'your-plugin-textdomain' ),
+		'edit_item'          => __( 'Editar vídeo', 'your-plugin-textdomain' ),
+		'view_item'          => __( 'Ver vídeo', 'your-plugin-textdomain' ),
+		'all_items'          => __( 'Todos os vídeos', 'your-plugin-textdomain' ),
+		'search_items'       => __( 'Procurar vídeos', 'your-plugin-textdomain' ),
+		'parent_item_colon'  => __( 'Parent Vídeos:', 'your-plugin-textdomain' ),
+		'not_found'          => __( 'Nenhum vídeo encontrado.', 'your-plugin-textdomain' ),
+		'not_found_in_trash' => __( 'Nenhum vídeo encontrado.', 'your-plugin-textdomain' )
+	);
+
+	$args = array(
+		'labels'             => $labels,
+        'description'        => __( 'Description.', 'your-plugin-textdomain' ),
+		'public'             => true,
+		'publicly_queryable' => true,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+		'query_var'          => true,
+		'rewrite'            => array( 'slug' => 'videos' ),
+		'capability_type'    => 'post',
+		'has_archive'        => true,
+		'hierarchical'       => false,
+		'menu_position'      => null,
+		'supports'           => array( 'title', 'editor',  'thumbnail', 'comments' )
+	);
+
+	register_post_type( 'video', $args );
+}
+
+      add_action( 'init', 'create_taxonomy_video_category' );
+      function create_taxonomy_video_category() {
+          register_taxonomy( 'video_category', array( 'video' ), array(
+              'hierarchical' => true,
+              'label' => __( 'Categoria do vídeo' ),
+              'show_ui' => true,
+              'show_in_tag_cloud' => true,
+              'query_var' => true,
+              'rewrite' => true,
+        )
+    );
+}
+
+
+
 function codex_tecnologia_init() {
 	$labels = array(
 		'name'               => _x( 'Tecnologias', 'post type general name', 'your-plugin-textdomain' ),
@@ -46,7 +98,9 @@ function codex_tecnologia_init() {
 	);
 
 	register_post_type( 'tecnologia', $args );
+  
 }
+
       add_action( 'init', 'create_taxonomy_tecnologia_category' );
       function create_taxonomy_tecnologia_category() {
           register_taxonomy( 'tecnologia_category', array( 'tecnologia' ), array(
